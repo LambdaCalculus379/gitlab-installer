@@ -1,10 +1,15 @@
 Name: Vagrant Test Checkpoints
 - Checkpoints:
-    - Create Vagrantfile from template: No
-    - Is Vagrantfile valid? Yes
-    - Is VirtualBox running? Yes
-    - VirtualBox resources available? Yes
-    - VM loads? No
-    - VM boots? No
-    - Login as SSH root? No
-    - Create new user? No
+    - Create Vagrantfile from template:
+    - Is Vagrantfile valid?
+    - Is VirtualBox running?
+    - VirtualBox resources available?
+    - VM loads?
+    - VM boots?
+    - Login as SSH root?
+    - Create new user?
+
+- Results:
+    - Name
+    - Yes
+    - No
