@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.define :gitlab do |config|
     # Configure some hostname here
     config.vm.hostname = host
-    config.vm.box = "ubuntu/xenial64"
+    config.vm.box = "bento/ubuntu-16.04"
     config.vm.provision :shell, :path => "install-gitlab.sh",
       env: { "GITLAB_SWAP" => swap, "GITLAB_HOSTNAME" => host, "GITLAB_PORT" => port }
 
