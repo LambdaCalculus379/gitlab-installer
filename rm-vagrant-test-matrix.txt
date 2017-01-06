@@ -1,0 +1,81 @@
+﻿Name: Vagrant Test Matrix
+- Hypervisor Hardware
+  - CPU: Intel Core i5-2520M @ 2.5 GHz
+  - RAM: 4 MB
+  - BOOT HD: 160 GB
+  - NIC PRIMARY: Gigabit Wifi
+  - NIC SECONDARY: Gigabit Ethernet
+- Hypervisor Software
+  - Linux: Debian, testing
+  - Git: 2.11.0
+  - Ansible: 2.2.0
+  - Vagrant: 1.9.1
+  - VirtualBox: 5.1.10
+- Virtual Machine Device Specs
+  - CPU: 1
+  - RAM: 2048 MB
+  - BOOT HD: 20 GB
+  - NIC PRIMARY: Gigabit Ethernet
+- Test Run
+  - Test ID: 1
+  - Deploy Target: VirtualBox
+  - Hypervisor Operating System: Linux
+  - Single Guest Operating System: ubuntu-16.04
+  - Vagrant Template Name: install-gitlab.sh
+
+  - Checkpoints:
+    - Create Vagrantfile from template: No
+    - Is Vagrantfile valid? Yes
+    - Is VirtualBox running? Yes
+    - VirtualBox resources available? Yes
+    - VM loads? No
+    - VM boots? No
+    - Login as SSH root? No
+    - Create new user? No
+---    
+    - $ mkdir ../testvagrant/; cp Vagrantfile-single-ubuntu16-guest-vbox.tpl ../testvagrant/Vagrantfile
+    - $ cd ../testvagrant/
+    - $ vagrant ssh
+    - $ ansible -h ${GUEST_HOST_IP} ping
+    - $ ansible -h ${GUEST_HOST_IP} whoami
+    - $ adduser am # ansible master account
+    - $ make target node local user am sudoer
+    - $ test target node local user am sudoer
+    - $ ansible -h ${GUEST_HOST_IP} whoami
+    - $ ansible -h ${GUEST_HOST_IP} canisudo
+    - $ ansible-playbook install git, etc
+    - $ ansible-playbook install ruby
+    - $ ansible-playbook install gitlab, jira, travis https
+---
+  - Single Guest Operating System: windev
+  - Single-Flavor Multi-Node Operating Systems
+  - Multi-Flavor Multi-Node Operating Systems
+---
+Name: Languages
+ - python
+ - ruby
+ - node
+ - go
+---
+Name: Hypervisor Operating System Options
+ - OS X 
+ - Linux
+---
+Name: Virtualized Guest Operating Systems
+ - OSX Server
+ - OSX Developer
+ - Windows Developer
+ - Windows Server
+ - Ubuntu16
+ - RHEL7
+ - CentOS7
+ - ArchLinux
+ - Debian??
+---
+- Checkpoints:
+    - Name
+    - Method
+    - Expected
+    - Actual
+    - Outcome
+——-
